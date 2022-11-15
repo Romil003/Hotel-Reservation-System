@@ -80,17 +80,15 @@ public class HotelMain {
     public static void main(String[] args) {
         HotelMain user = new HotelMain();
         List<Hotel> hotelList = new ArrayList<Hotel>();
-        hotelList.add(new Hotel("Lakewood",110,90,0));
-        hotelList.add(new Hotel("Bridgewood",160,60,0));
-        hotelList.add(new Hotel("Ridgewood",220,150,0));
-
-//        hotelList.stream().forEach(x -> System.out.println(x));
+        hotelList.add(new Hotel("Lakewood",110,90,4.3));
+        hotelList.add(new Hotel("Bridgewood",160,60,4.9));
+        hotelList.add(new Hotel("Ridgewood",220,150,4.5));
 
         Scanner input = new Scanner(System.in);
         int choice;
 
         do {
-            System.out.print("1.View Hotels\t 2.Find cheaper Hotel\t 3.Add Ratings\t 4.Exit\n");
+            System.out.print("1.View Hotels\t 2.Find cheaper Hotel\t 3.Add Ratings\t 4.Best rated Hotel\t 5.Exit\n");
             System.out.println("Enter a choice : ");
             choice = input.nextInt();
             switch (choice) {
@@ -124,10 +122,15 @@ public class HotelMain {
                     });
                     break;
                 case 4:
+                    Hotel hotel_1 = hotelList.get(0);
+                    Hotel bestRatedHotel = hotelList.stream().reduce(hotel_1, (a, b) -> a.getRating()> b.getRating() ? a : b);
+                    System.out.println("Cheaper hotel you get => " + bestRatedHotel + " with rating of  " + bestRatedHotel.getRating() );
+                    break;
+                case 5:
                     System.out.println("Exiting from program !!!!");
                     break;
             }
-        }while (choice != 4);
+        }while (choice != 5);
 
     }
 }

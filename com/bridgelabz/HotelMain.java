@@ -84,7 +84,7 @@ public class HotelMain {
         hotelList.add(new Hotel("Bridgewood",160,60));
         hotelList.add(new Hotel("Ridgewood",220,150));
 
-//        hotels.stream().forEach(x -> System.out.println(x));
+        hotelList.stream().forEach(x -> System.out.println(x));
 
         Scanner input = new Scanner(System.in);
         System.out.println("Enter start date : ");
@@ -95,21 +95,11 @@ public class HotelMain {
         System.out.println("Total weekDays => " + totalWeekDays);
         System.out.println();
         long totalWeekEnds = getWeekends(startDate,endDate);
-        System.out.println("Total weekEnds => " + totalWeekEnds);
+        System.out.println("Total weekEnds => " + totalWeekEnds) ;
 
-        List<Integer> rates = new ArrayList<>();
-        for (Hotel userHotel : hotelList) {
-            rates.add((int) userHotel.totalRate(totalWeekDays,totalWeekEnds));
-        }
-        rates.stream().forEach(x -> System.out.println(x));
-        System.out.println();
-        Optional<Integer> minimumRate = rates.stream().min((a, b) -> a-b);
-        System.out.println("Minimum rate => " + minimumRate);
-
-
-
-
-
+        Hotel hotel1 = hotelList.get(0);
+        Hotel cheaperHotel = hotelList.stream().reduce(hotel1,(a,b) -> a.totalRate(totalWeekDays,totalWeekEnds)< b.totalRate(totalWeekDays,totalWeekEnds) ? a : b);
+        System.out.println("Cheaper hotel you get => " + cheaperHotel);
 
     }
 }

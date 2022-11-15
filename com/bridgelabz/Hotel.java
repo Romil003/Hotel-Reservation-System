@@ -78,10 +78,17 @@ public class Hotel {
     public long totalRate(long weekDayCount , long weekEndCount){
         long weekDayRate = weekDayCount*getRegularCustomerWeekdayRates();
         long weekEndRate = weekEndCount*getRegularCustomerWeekEndRates();
-        long totalRate = weekDayRate + weekDayRate;
-        return totalRate;
+        long totalRate = weekDayRate + weekEndRate;
+        return totalRate ;
     }
 
+
+    public long totalRateForRewardCustomer(long weekDayCount , long weekEndCount) {
+        long weekDayRate = weekDayCount*getRewardCustomerWeekdayRates();
+        long weekEndRate = weekEndCount*getRewardCustomerWeekEndRates();
+        long totalRateForRewardC = weekDayRate + weekEndRate;
+        return totalRateForRewardC;
+    }
 
     @Override
     public String toString() {

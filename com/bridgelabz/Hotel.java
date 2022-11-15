@@ -23,7 +23,7 @@ public class Hotel {
     }
 
     public void setHotelName(String hotelName) {
-        this.hotelName = hotelName;
+        this.hotelName = hotelName ;
     }
 
     public int getRegularCustomerWeekdayRates() {

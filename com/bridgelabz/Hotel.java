@@ -8,14 +8,17 @@ public class Hotel {
 
     private int regularCustomerWeekEndRates;
 
+    private double rating ;
+
 
     public Hotel() {
     }
 
-    public Hotel(String hotelName, int regularCustomerWeekdayRates, int regularCustomerWeekEndRates) {
+    public Hotel(String hotelName, int regularCustomerWeekdayRates, int regularCustomerWeekEndRates, double rating) {
         this.hotelName = hotelName;
         this.regularCustomerWeekdayRates = regularCustomerWeekdayRates ;
         this.regularCustomerWeekEndRates = regularCustomerWeekEndRates;
+        this.rating = rating;
     }
 
     public String getHotelName() {
@@ -42,19 +45,28 @@ public class Hotel {
         this.regularCustomerWeekEndRates = regularCustomerWeekEndRates;
     }
 
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
+
     public long totalRate(long weekDayCount , long weekEndCount){
         long weekDayRate = weekDayCount*getRegularCustomerWeekdayRates();
         long weekEndRate = weekEndCount*getRegularCustomerWeekEndRates();
         long totalRate = weekDayRate + weekDayRate;
         return totalRate;
     }
+
     @Override
     public String toString() {
         return "Hotel{" +
                 "hotelName='" + hotelName + '\'' +
                 ", regularCustomerWeekdayRates=" + regularCustomerWeekdayRates +
                 ", regularCustomerWeekEndRates=" + regularCustomerWeekEndRates +
+                ", rating=" + rating +
                 '}';
     }
-
 }

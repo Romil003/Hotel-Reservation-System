@@ -95,7 +95,7 @@ public class HotelMain {
         System.out.println("Total weekDays => " + totalWeekDays);
         System.out.println();
         long totalWeekEnds = getWeekends(startDate,endDate);
-        System.out.println("Total weekEnds => " + totalWeekEnds) ;
+        System.out.println("Total weekEnds => " + totalWeekEnds);
 
         Hotel hotel1 = hotelList.get(0);
         Hotel cheaperHotel = hotelList.stream().reduce(hotel1,(a,b) -> a.totalRate(totalWeekDays,totalWeekEnds)< b.totalRate(totalWeekDays,totalWeekEnds) ? a : b);

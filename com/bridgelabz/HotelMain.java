@@ -151,7 +151,7 @@ public class HotelMain {
                                 int weekendRates = input.nextInt();
                                 hotel.setRewardCustomerWeekEndRates(weekendRates);
                                 System.out.println();
-                                System.out.println(hotel);
+                                System.out.println(hotel) ;
                             }
                         }
                     }

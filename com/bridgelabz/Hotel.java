@@ -42,7 +42,12 @@ public class Hotel {
         this.regularCustomerWeekEndRates = regularCustomerWeekEndRates;
     }
 
-
+    public long totalRate(long weekDayCount , long weekEndCount){
+        long weekDayRate = weekDayCount*getRegularCustomerWeekdayRates();
+        long weekEndRate = weekEndCount*getRegularCustomerWeekEndRates();
+        long totalRate = weekDayRate + weekDayRate;
+        return totalRate;
+    }
     @Override
     public String toString() {
         return "Hotel{" +

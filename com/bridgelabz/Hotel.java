@@ -77,7 +77,7 @@ public class Hotel {
 
     public long totalRate(long weekDayCount , long weekEndCount){
         long weekDayRate = weekDayCount*getRegularCustomerWeekdayRates();
-        long weekEndRate = weekEndCount*getRegularCustomerWeekEndRates();
+        long weekEndRate = weekEndCount*getRegularCustomerWeekEndRates() ;
         long totalRate = weekDayRate + weekDayRate;
         return totalRate;
     }

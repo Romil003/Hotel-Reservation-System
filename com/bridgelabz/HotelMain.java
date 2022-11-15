@@ -18,7 +18,7 @@ public class HotelMain {
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/M/yyyy");
 
-            LocalDate startDate = LocalDate.parse(strStartDate, formatter);
+            LocalDate startDate = LocalDate.parse(strStartDate, formatter) ;
             LocalDate endDate = LocalDate.parse(strEndDate, formatter) ;
 
             for (LocalDate date = startDate; !date.isAfter(endDate); date = date.plusDays(1)) {

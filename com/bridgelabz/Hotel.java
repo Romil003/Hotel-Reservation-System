@@ -14,7 +14,7 @@ public class Hotel {
 
     public Hotel(String hotelName, int regularCustomerWeekdayRates, int regularCustomerWeekEndRates) {
         this.hotelName = hotelName;
-        this.regularCustomerWeekdayRates = regularCustomerWeekdayRates;
+        this.regularCustomerWeekdayRates = regularCustomerWeekdayRates ;
         this.regularCustomerWeekEndRates = regularCustomerWeekEndRates;
     }
 

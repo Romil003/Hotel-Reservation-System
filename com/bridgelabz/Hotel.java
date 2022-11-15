@@ -10,15 +10,21 @@ public class Hotel {
 
     private double rating ;
 
+    private int rewardCustomerWeekdayRates;
+
+    private int rewardCustomerWeekEndRates;
+
 
     public Hotel() {
     }
 
-    public Hotel(String hotelName, int regularCustomerWeekdayRates, int regularCustomerWeekEndRates, double rating) {
+    public Hotel(String hotelName, int regularCustomerWeekdayRates, int regularCustomerWeekEndRates, double rating, int rewardCustomerWeekdayRates, int rewardCustomerWeekEndRates) {
         this.hotelName = hotelName;
         this.regularCustomerWeekdayRates = regularCustomerWeekdayRates;
         this.regularCustomerWeekEndRates = regularCustomerWeekEndRates;
         this.rating = rating;
+        this.rewardCustomerWeekdayRates = rewardCustomerWeekdayRates;
+        this.rewardCustomerWeekEndRates = rewardCustomerWeekEndRates;
     }
 
     public String getHotelName() {
@@ -53,12 +59,29 @@ public class Hotel {
         this.rating = rating;
     }
 
+    public int getRewardCustomerWeekdayRates() {
+        return rewardCustomerWeekdayRates;
+    }
+
+    public void setRewardCustomerWeekdayRates(int rewardCustomerWeekdayRates) {
+        this.rewardCustomerWeekdayRates = rewardCustomerWeekdayRates;
+    }
+
+    public int getRewardCustomerWeekEndRates() {
+        return rewardCustomerWeekEndRates;
+    }
+
+    public void setRewardCustomerWeekEndRates(int rewardCustomerWeekEndRates) {
+        this.rewardCustomerWeekEndRates = rewardCustomerWeekEndRates;
+    }
+
     public long totalRate(long weekDayCount , long weekEndCount){
         long weekDayRate = weekDayCount*getRegularCustomerWeekdayRates();
         long weekEndRate = weekEndCount*getRegularCustomerWeekEndRates();
         long totalRate = weekDayRate + weekDayRate;
         return totalRate;
     }
+
 
     @Override
     public String toString() {
@@ -67,6 +90,8 @@ public class Hotel {
                 ", regularCustomerWeekdayRates=" + regularCustomerWeekdayRates +
                 ", regularCustomerWeekEndRates=" + regularCustomerWeekEndRates +
                 ", rating=" + rating +
+                ", rewardCustomerWeekdayRates=" + rewardCustomerWeekdayRates +
+                ", rewardCustomerWeekEndRates=" + rewardCustomerWeekEndRates +
                 '}';
     }
 }

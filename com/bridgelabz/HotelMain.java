@@ -37,7 +37,7 @@ public class HotelMain {
             }
 
         }catch (Exception e){
-            System.out.println("Please Enter Valid Date");
+            return 0;
         }
         return weekends.stream().count();
     }
@@ -72,7 +72,7 @@ public class HotelMain {
 
 
         }catch (Exception e){
-            System.out.println("Please Enter Valid Date");
+            return 0;
         }
         return weekdays.stream().count();
     }
@@ -80,9 +80,9 @@ public class HotelMain {
     public static void main(String[] args) {
         HotelMain user = new HotelMain();
         List<Hotel> hotelList = new ArrayList<Hotel>();
-        hotelList.add(new Hotel("Lakewood",110,90,4.3,80,80));
-        hotelList.add(new Hotel("Bridgewood",160,60,4.9,110,50));
-        hotelList.add(new Hotel("Ridgewood",220,150,4.5,110,40));
+        hotelList.add(new Hotel("Lakewood",110,90,3,80,80));
+        hotelList.add(new Hotel("Bridgewood",160,60,4,110,50));
+        hotelList.add(new Hotel("Ridgewood",220,150,5,110,40));
 
         Scanner input = new Scanner(System.in);
         int choice;
@@ -107,19 +107,14 @@ public class HotelMain {
                     System.out.println();
                     long totalWeekEnds = getWeekends(checkInDate,checkOutDate);
                     System.out.println("Total weekEnds => " + totalWeekEnds);
-
-                    System.out.print("1.Regular Customer\t 2.Reward Customer\n");
-                    System.out.println("Enter choice for type of customer : ");
-                    int typeOfCustomer = input.nextInt();
-                    if(typeOfCustomer ==1) {
-                        Hotel hotel1 = hotelList.get(0);
-                        Hotel bestRatedAndCheaperHotel = hotelList.stream().reduce(hotel1, (a, b) -> a.totalRate(totalWeekDays, totalWeekEnds) < b.totalRate(totalWeekDays, totalWeekEnds) && a.getRating() > b.getRating() ? a : b);
-                        System.out.println("Best rated and Cheaper hotel you get => " + bestRatedAndCheaperHotel.getHotelName() + " with total rate of Rs. " + bestRatedAndCheaperHotel.totalRate(totalWeekDays, totalWeekEnds) + " and rating of " + bestRatedAndCheaperHotel.getRating());
+                    System.out.println("For Reward Customer : ");
+                    if(getWeekdays(checkInDate,checkOutDate) != 0 && getWeekends(checkInDate,checkOutDate) != 0) {
+                            Hotel hotel1 = hotelList.get(0);
+                            Hotel bestRatedAndCheaperHotel = hotelList.stream().reduce(hotel1, (a, b) -> a.totalRateForRewardCustomer(totalWeekDays, totalWeekEnds) < b.totalRateForRewardCustomer(totalWeekDays, totalWeekEnds) && a.getRating() > b.getRating() ? a : b);
+                            System.out.println("Best rated and Cheaper hotel you get => " + bestRatedAndCheaperHotel.getHotelName() + " with total rate of Rs. " + bestRatedAndCheaperHotel.totalRate(totalWeekDays, totalWeekEnds) + " and rating of " + bestRatedAndCheaperHotel.getRating());
                     }
                     else {
-                        Hotel hotel1 = hotelList.get(0);
-                        Hotel bestRatedAndCheaperHotel = hotelList.stream().reduce(hotel1, (a, b) -> a.totalRateForRewardCustomer(totalWeekDays, totalWeekEnds) < b.totalRateForRewardCustomer(totalWeekDays, totalWeekEnds) && a.getRating() > b.getRating() ? a : b);
-                        System.out.println("Best rated and Cheaper hotel you get => " + bestRatedAndCheaperHotel.getHotelName() + " with total rate of Rs. " + bestRatedAndCheaperHotel.totalRate(totalWeekDays, totalWeekEnds) + " and rating of " + bestRatedAndCheaperHotel.getRating());
+                        System.out.println("Enter Valid Dates");
                     }
                     break;
                 case 3:

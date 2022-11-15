@@ -112,7 +112,7 @@ public class HotelMain {
 
                     Hotel hotel1 = hotelList.get(0);
                     Hotel cheaperHotel = hotelList.stream().reduce(hotel1, (a, b) -> a.totalRate(totalWeekDays, totalWeekEnds) < b.totalRate(totalWeekDays, totalWeekEnds) ? a : b);
-                    System.out.println("Cheaper hotel you get => " + cheaperHotel);
+                    System.out.println("Cheaper hotel you get => " + cheaperHotel + " with total rate of Rs. " + cheaperHotel.totalRate(totalWeekDays,totalWeekEnds));
                     break;
                 case 3:
                     System.out.println("Enter the Hotel name : ");

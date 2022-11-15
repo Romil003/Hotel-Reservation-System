@@ -31,7 +31,7 @@ public class Hotel {
     }
 
     public void setRegularCustomerWeekdayRates(int regularCustomerWeekdayRates) {
-        this.regularCustomerWeekdayRates = regularCustomerWeekdayRates;
+        this.regularCustomerWeekdayRates = regularCustomerWeekdayRates ;
     }
 
     public int getRegularCustomerWeekEndRates() {
